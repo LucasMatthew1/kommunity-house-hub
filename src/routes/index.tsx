@@ -1,24 +1,74 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Programs } from "@/components/site/Programs";
+import { Initiatives } from "@/components/site/Initiatives";
+import { Choir } from "@/components/site/Choir";
+import { Events } from "@/components/site/Events";
+import { GetInvolved } from "@/components/site/GetInvolved";
+import { VolunteerForm } from "@/components/site/VolunteerForm";
+import { MailingList } from "@/components/site/MailingList";
+import { Donate } from "@/components/site/Donate";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Kommunity House | Building Stronger Communities & Creating Opportunities";
+const description =
+  "Kommunity House supports communities through economic opportunity, educational programs, entrepreneurship, events, resources, and initiatives that foster unity and participation.";
+
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "NGO",
+          name: "Kommunity House",
+          description,
+          slogan: "Building communities. Creating opportunity. Fostering unity.",
+          url: "/",
+        }),
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main>
+        <h1 className="sr-only">
+          Kommunity House — building stronger communities and creating greater opportunities
+        </h1>
+        <Hero />
+        <About />
+        <Programs />
+        <Initiatives />
+        <Choir />
+        <Events />
+        <GetInvolved />
+        <VolunteerForm />
+        <MailingList />
+        <Donate />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
