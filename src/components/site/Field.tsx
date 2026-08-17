@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 
 type BaseProps = {
   label: string;
-  error?: string;
-  required?: boolean;
-  hint?: string;
-  className?: string;
+  error?: string | undefined;
+  required?: boolean | undefined;
+  hint?: string | undefined;
+  className?: string | undefined;
   children?: ReactNode;
 };
 
@@ -21,7 +21,7 @@ export function Field({
   className,
   children,
   render,
-}: BaseProps & { render: (props: { id: string; describedBy?: string; invalid: boolean }) => ReactNode }) {
+}: BaseProps & { render: (props: { id: string; describedBy?: string | undefined; invalid: boolean }) => ReactNode }) {
   const id = useId();
   const errorId = `${id}-error`;
   const hintId = `${id}-hint`;
