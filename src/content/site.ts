@@ -23,7 +23,7 @@ import eventPowerUp from "@/assets/event-powerup.jpg";
 import eventPacc from "@/assets/event-pacc.jpg";
 import eventWeekly from "@/assets/event-weekly.jpg";
 import volunteerImg from "@/assets/volunteer.jpg";
-import logoAsset from "@/assets/kommunity-house-logo.jpg.asset.json";
+import logoAsset from "@/assets/kommunity-house-logo.jpg";
 
 export const images = {
   hero: heroCommunity,
@@ -36,7 +36,7 @@ export const images = {
 };
 
 export const logo = {
-  src: logoAsset.url,
+  src: logoAsset,
   alt: "Kommunity House logo — a house inside a warm gold sunburst",
 };
 
