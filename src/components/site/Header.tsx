@@ -34,7 +34,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <a href="#top" className="flex items-center gap-3" aria-label={`${org.name} — home`}>
           <img
-            src={logo.src}
+            src={logo}
             alt={logo.alt}
             width={64}
             height={64}
